@@ -46,3 +46,5 @@ unsafe.enable_getters_and_setters=true
 
 [version]
 ^0.57.0
+
+flow init
