@@ -9,7 +9,10 @@
     "flow-stop": "node_modules/.bin/flow stop"
   },
   "dependencies": {
+    "@types/jasmine": "^2.8.2",
+    "enzyme": "^3.2.0",
     "flow-bin": "^0.57.0",
+    "jasmine": "^2.8.0",
     "react": "16.0.0",
     "react-native": "0.51.0",
     "react-redux": "^5.0.6",
