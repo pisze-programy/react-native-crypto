@@ -10,28 +10,50 @@ type Props = {
 }
 
 type State = {
-  searchActive: boolean,
+  isSearchActive: boolean,
+  isBackBtnActive: boolean,
 }
 
 export class Header extends Component<Props, State> {
   toggleSearchInput: Function;
+  onBackBtnPressed: Function;
+  onMenuPressed: Function;
+  onFavouritePressed: Function;
 
   constructor(props: Props) {
     super(props);
 
     this.state = {
-      searchActive: false,
+      isSearchActive: false,
+      isBackBtnActive: false,
     };
 
     this.toggleSearchInput = this.toggleSearchInput.bind(this);
+    this.onBackBtnPressed = this.onBackBtnPressed.bind(this);
+    this.onMenuPressed = this.onMenuPressed.bind(this);
+    this.onFavouritePressed = this.onFavouritePressed.bind(this);
+
   }
 
   toggleSearchInput () {
-    console.log('hej', this.state);
-    this.setState(Object.assign({}, this.state, {searchActive: !this.state.searchActive}));
+    this.setState(Object.assign({}, this.state, {isSearchActive: !this.state.isSearchActive}));
+  }
+
+  onBackBtnPressed () {
+    //
+  }
+
+  onMenuPressed () {
+    //
+  }
+
+  onFavouritePressed () {
+    //
   }
 
   render() {
+    const backBtnPadder = this.state.isBackBtnActive ? {paddingLeft: 25} : {};
+
     return (
       <View>
         <View>
@@ -42,35 +64,46 @@ export class Header extends Component<Props, State> {
         </View>
         <View style={styles.mainHeaderContainer}>
           <View style={{flex: 1}}>
-            {this.state.searchActive && (
-              <TouchableOpacity onPress={this.toggleSearchInput}>
-                <Text style={{textAlign: 'left', paddingLeft: 20}}>
-                  <Icon name="arrow-left" size={19} color="#fff" />
+            {this.state.isBackBtnActive && (
+              <TouchableOpacity onPress={this.onBackBtnPressed}>
+                <Text style={{paddingLeft: 20}}>
+                  <Icon name="long-arrow-left" size={19} color="#fff" style={{fontWeight: 100}} />
                 </Text>
               </TouchableOpacity>
             )}
           </View>
 
-          <View style={{flex: 8}}>
-            {!this.state.searchActive ? (
-              <Text style={{margin: 0, fontSize: 18, textAlign: 'left', color: '#fff', fontWeight: 'bold', textAlign: 'left'}}>
+          {!this.state.isSearchActive ? (
+            <View style={{flex: 8}}>
+              <Text style={[{margin: 0, fontSize: 17, textAlign: 'left', color: '#fff', fontWeight: 'bold', textAlign: 'left',}, backBtnPadder]}>
                 Crypto Currency Cap
               </Text>
-            ) : (
+            </View>
+          ) : (
+            <View style={{flex: 8}}>
               <TextInput
-                style={{height: 40, color: '#fff', marginLeft: 20, marginRight: 20}}
+                style={{height: 40, color: '#fff', marginLeft: 20, marginRight: 20,}}
                 autoFocus={true}
+                placeholderTextColor={'#fff'}
                 placeholder="Search for currency"
                 onChangeText={(text) => {}} />
-            )}
-          </View>
+            </View>
+          )}
 
           <View style={{flex: 1}}>
-            <TouchableOpacity onPress={this.toggleSearchInput}>
-              <Text style={{textAlign: 'left', paddingLeft: 0}}>
-                <Icon name="search" size={19} color="#fff" />
-              </Text>
-            </TouchableOpacity>
+            {!this.state.isSearchActive ? (
+              <TouchableOpacity onPress={this.toggleSearchInput}>
+                <Text style={{textAlign: 'left', paddingLeft: 0}}>
+                  <Icon name="search" size={19} color="#fff" />
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity onPress={this.toggleSearchInput}>
+                <Text style={{textAlign: 'left', paddingLeft: 0}}>
+                  <Icon name="times" size={19} color="#fff" style={{fontWeight: 100}} />
+                </Text>
+              </TouchableOpacity>
+            )}
           </View>
 
           <View style={{flex: 1}}>
@@ -82,7 +115,7 @@ export class Header extends Component<Props, State> {
           </View>
 
           <View style={{flex: 1}}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.onMenuPressed}>
               <Text style={{textAlign: 'right', paddingRight: 20}}>
                 <Icon name="ellipsis-v" size={19} color="#fff" />
               </Text>
