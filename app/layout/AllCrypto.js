@@ -1,32 +1,27 @@
+// @flow
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { connect } from "react-redux";
+import { CurrencyElement } from "../components/CurrencyElement";
 
-export class AllCrypto extends Component {
-  constructor(props) {
+type Props = {
+
+}
+
+@connect((state: Props) => ({
+  //
+}))
+export class AllCrypto extends Component<Props> {
+  constructor(props: Props) {
     super(props);
   }
 
   render() {
     return (
       <View>
-        <Text>All Currencies</Text>
+        <Text>All:</Text>
+        <CurrencyElement />
       </View>
     );
   }
 }
-
-/* istanbul ignore next */
-function mapStateToProps(state) {
-  return {}
-}
-
-/* istanbul ignore next */
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AllCrypto);

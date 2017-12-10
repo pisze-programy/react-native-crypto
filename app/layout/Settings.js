@@ -7,6 +7,9 @@ type Props = {
 
 };
 
+@connect(state => ({
+  //
+}))
 export class Settings extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -20,18 +23,3 @@ export class Settings extends Component<Props> {
     );
   }
 }
-
-/* istanbul ignore next */
-function mapStateToProps(state) {
-  return {}
-}
-
-/* istanbul ignore next */
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Settings);

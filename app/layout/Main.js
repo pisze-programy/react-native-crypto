@@ -1,51 +1,34 @@
 // @flow
 import React, { Component } from "react";
-import { View } from "react-native";
+import { StatusBar, View } from "react-native";
 import { connect } from "react-redux";
-
-import ScrollableTabView, { DefaultTabBar } from "react-native-scrollable-tab-view";
-import { FavouriteCrypto } from "./FavouriteCrypto";
 import { AllCrypto } from "./AllCrypto";
 import { styles } from "../styles";
-import Settings from "./Settings";
+import { Header } from "../components/Header";
 
 type Props = {
 
 }
 
-export class MainLayout extends Component<Props> {
+@connect(state => ({
+  //
+}))
+export default class MainLayout extends Component<Props> {
   constructor(props: Props) {
     super(props);
   }
 
   render() {
     return (
-      <View style={styles.cardsContainer}>
-        <ScrollableTabView
-          tabBarPosition="top"
-          renderTabBar={() => <DefaultTabBar />}>
-          <FavouriteCrypto tabLabel='Favourite'/>
+      <View style={styles.mainContainer}>
+        <StatusBar
+          backgroundColor="black"
+          barStyle="light-content"
+        />
 
-          <AllCrypto tabLabel='Currencies'/>
-
-          <Settings tabLabel='Settings'/>
-        </ScrollableTabView>
+        <Header name="Crypto Market Cap" />
+        <AllCrypto />
       </View>
     );
   }
 }
-
-/* istanbul ignore next */
-function mapStateToProps(state) {
-  return {}
-}
-
-/* istanbul ignore next */
-function mapDispatchToProps(dispatch) {
-  return {};
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MainLayout);

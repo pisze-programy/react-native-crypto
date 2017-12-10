@@ -2,9 +2,9 @@ import "react-native";
 import React from "react";
 
 import renderer from 'react-test-renderer';
-import { FavouriteCrypto } from "./FavouriteCrypto";
+import { CurrencyElement } from "./CurrencyElement";
 
 it('renders correctly', () => {
-  const rendered = renderer.create(<FavouriteCrypto />).toJSON();
+  const rendered = renderer.create(<CurrencyElement />).toJSON();
   expect(rendered).toBeDefined();
 });
