@@ -12,9 +12,9 @@ export const styles = StyleSheet.create({
 
   mainHeaderContainer: {
     flexDirection: 'row',
-    paddingTop: 30,
-    height: 64,
+    height: 50,
+    alignItems: 'center',
     width,
-    backgroundColor: '#1EAAF1'
+    backgroundColor: '#1da075'
   },
 });

@@ -19,7 +19,6 @@ export class AllCrypto extends Component<Props> {
   render() {
     return (
       <View>
-        <Text>All:</Text>
         <CurrencyElement />
       </View>
     );
