@@ -10,10 +10,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  mainHeader: {
+  mainHeaderContainer: {
     flexDirection: 'row',
     paddingTop: 30,
     height: 64,
+    width,
     backgroundColor: '#1EAAF1'
-  }
+  },
 });
