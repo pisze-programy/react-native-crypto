@@ -4,37 +4,19 @@ import { StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native
 import { styles } from "../styles";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import type { Connector } from 'react-redux';
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as navActionsCreators from "../actions/navActions";
+import { backPressed, hideSearchInput, openFavourite, openSettings, showSearchInput } from "../actions/navActions";
 
 import type { Dispatch } from "../types";
-import { showSearchInput } from "../actions/navActions";
-import { hideSearchInput } from "../actions/navActions";
-import { openSettings } from "../actions/navActions";
-import { openFavourite } from "../actions/navActions";
-import { backPressed } from "../actions/navActions";
-
-import type { Connector } from 'react-redux';
+import type { Nav } from "../types/nav";
 
 type Props = {
-  nav: {
-    isSearchActive: boolean,
-    isBackBtnActive: boolean,
-    isFavouriteActive: boolean,
-    isSettingsActive: boolean,
-  },
+  nav: Nav,
   dispatch: Dispatch,
 }
 
-type State = {
-  nav: {
-    isSearchActive: boolean,
-    isBackBtnActive: boolean,
-    isFavouriteActive: boolean,
-    isSettingsActive: boolean,
-  }
-}
+type State = {}
 
 export class Header extends Component<Props, State> {
   onHideSearchInput: Function;

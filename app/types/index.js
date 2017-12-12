@@ -1,9 +1,4 @@
 // @flow
-
-import type { Store as ReduxStore, Dispatch as ReduxDispatch } from 'redux';
-
-export type ReduxInitAction = { type: '@@INIT' };
-
-export type Store = ReduxStore<{}, {}>;
+import type { Dispatch as ReduxDispatch } from 'redux';
 
 export type Dispatch = ReduxDispatch<{}>;

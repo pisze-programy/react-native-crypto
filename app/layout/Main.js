@@ -5,12 +5,18 @@ import { connect } from "react-redux";
 import AllCrypto from "./AllCrypto";
 import { styles } from "../styles";
 import Header from "../components/Header";
+import type { Connector } from "react-redux";
+import type { Dispatch } from "../types";
+import type { Nav } from "../types/nav";
 
 type Props = {
-
+  nav: Nav,
+  dispatch: Dispatch,
 }
 
-export class MainLayout extends Component<Props> {
+type State = {}
+
+export class MainLayout extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
@@ -25,8 +31,12 @@ export class MainLayout extends Component<Props> {
   }
 }
 
-const state = (state) => {
-  return {}
+const mapStateToProps = (state) => {
+  return {
+    nav: state.nav,
+  }
 };
 
-export default connect(state)(MainLayout);
+const connector: Connector<State, Props> = connect(mapStateToProps);
+
+export default connector(MainLayout);
