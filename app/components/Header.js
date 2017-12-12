@@ -12,6 +12,8 @@ type Props = {
 type State = {
   isSearchActive: boolean,
   isBackBtnActive: boolean,
+  isFavouriteActive: boolean,
+  isSettingsActive: boolean,
 }
 
 export class Header extends Component<Props, State> {
@@ -26,6 +28,8 @@ export class Header extends Component<Props, State> {
     this.state = {
       isSearchActive: false,
       isBackBtnActive: false,
+      isFavouriteActive: false,
+      isSettingsActive: false,
     };
 
     this.toggleSearchInput = this.toggleSearchInput.bind(this);
@@ -40,15 +44,28 @@ export class Header extends Component<Props, State> {
   }
 
   onBackBtnPressed () {
-    //
+    this.setState(Object.assign({}, this.state, {
+      isSettingsActive: false,
+      isFavouriteActive: false,
+      isBackBtnActive: false,
+      isSearchActive: false,
+    }));
   }
 
   onMenuPressed () {
-    //
+    this.setState(Object.assign({}, this.state, {
+      isSettingsActive: true,
+      isBackBtnActive: true,
+      isSearchActive: false,
+    }));
   }
 
   onFavouritePressed () {
-    //
+    this.setState(Object.assign({}, this.state, {
+      isFavouriteActive: true,
+      isBackBtnActive: true,
+      isSearchActive: false,
+    }));
   }
 
   render() {
@@ -107,7 +124,7 @@ export class Header extends Component<Props, State> {
           </View>
 
           <View style={{flex: 1}}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={this.onFavouritePressed}>
               <Text style={{textAlign: 'center', paddingRight: 10}}>
                 <Icon name="star-o" size={19} color="#fff" />
               </Text>
@@ -116,8 +133,8 @@ export class Header extends Component<Props, State> {
 
           <View style={{flex: 1}}>
             <TouchableOpacity onPress={this.onMenuPressed}>
-              <Text style={{textAlign: 'right', paddingRight: 20}}>
-                <Icon name="ellipsis-v" size={19} color="#fff" />
+              <Text style={{textAlign: 'right', paddingRight: 15}}>
+                <Icon name="cog" size={19} color="#fff" />
               </Text>
             </TouchableOpacity>
           </View>
