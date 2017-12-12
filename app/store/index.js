@@ -5,7 +5,7 @@ import rootReducer from "../reducers";
 
 const configureStore = () => {
   return createStore(
-    // rootReducer,
+    rootReducer,
     compose(
         applyMiddleware(
             createLogger()

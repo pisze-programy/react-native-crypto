@@ -4,7 +4,7 @@ import { View } from "react-native";
 import { connect } from "react-redux";
 import AllCrypto from "./AllCrypto";
 import { styles } from "../styles";
-import { Header } from "../components/Header";
+import Header from "../components/Header";
 
 type Props = {
 
@@ -18,7 +18,7 @@ export class MainLayout extends Component<Props> {
   render() {
     return (
       <View style={styles.mainContainer}>
-        <Header name="Crypto Market Cap" />
+        <Header />
         <AllCrypto />
       </View>
     );

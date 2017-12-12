@@ -1,10 +1,24 @@
 import "react-native";
 import React from "react";
+import expect from "expect";
 
-import renderer from 'react-test-renderer';
 import { Header } from "./Header";
+import { shallow } from "enzyme";
 
-it('renders correctly', () => {
-  const rendered = renderer.create(<Header />).toJSON();
-  expect(rendered).toBeDefined();
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
+describe('Header Component Test Case', () => {
+  const component = shallow(<Header dispatch={() => {}} nav={{
+    isSearchActive: false,
+    isBackBtnActive: false,
+    isFavouriteActive: false,
+    isSettingsActive: false,
+  }} />);
+
+  it('renders correctly', () => {
+    expect(component).toBeDefined();
+  });
 });

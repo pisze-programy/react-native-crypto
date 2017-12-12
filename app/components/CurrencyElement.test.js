@@ -1,10 +1,19 @@
 import "react-native";
 import React from "react";
+import expect from "expect";
 
-import renderer from 'react-test-renderer';
 import { CurrencyElement } from "./CurrencyElement";
+import { shallow } from "enzyme";
 
-it('renders correctly', () => {
-  const rendered = renderer.create(<CurrencyElement />).toJSON();
-  expect(rendered).toBeDefined();
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+
+describe('CurrencyElement Component Test Case', () => {
+  const component = shallow(<CurrencyElement />);
+
+  it('renders correctly', () => {
+    expect(component).toBeDefined();
+  });
 });

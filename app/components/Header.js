@@ -4,20 +4,41 @@ import { StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native
 import { styles } from "../styles";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as navActionsCreators from "../actions/navActions";
+
+import type { Dispatch } from "../types";
+import { showSearchInput } from "../actions/navActions";
+import { hideSearchInput } from "../actions/navActions";
+import { openSettings } from "../actions/navActions";
+import { openFavourite } from "../actions/navActions";
+import { backPressed } from "../actions/navActions";
+
+import type { Connector } from 'react-redux';
 
 type Props = {
-  name?: string,
+  nav: {
+    isSearchActive: boolean,
+    isBackBtnActive: boolean,
+    isFavouriteActive: boolean,
+    isSettingsActive: boolean,
+  },
+  dispatch: Dispatch,
 }
 
 type State = {
-  isSearchActive: boolean,
-  isBackBtnActive: boolean,
-  isFavouriteActive: boolean,
-  isSettingsActive: boolean,
+  nav: {
+    isSearchActive: boolean,
+    isBackBtnActive: boolean,
+    isFavouriteActive: boolean,
+    isSettingsActive: boolean,
+  }
 }
 
 export class Header extends Component<Props, State> {
-  toggleSearchInput: Function;
+  onHideSearchInput: Function;
+  onOpenSearchInput: Function;
   onBackBtnPressed: Function;
   onMenuPressed: Function;
   onFavouritePressed: Function;
@@ -26,50 +47,47 @@ export class Header extends Component<Props, State> {
     super(props);
 
     this.state = {
-      isSearchActive: false,
-      isBackBtnActive: false,
-      isFavouriteActive: false,
-      isSettingsActive: false,
+      nav: {
+        isSearchActive: false,
+        isBackBtnActive: false,
+        isFavouriteActive: false,
+        isSettingsActive: false,
+      }
     };
 
-    this.toggleSearchInput = this.toggleSearchInput.bind(this);
+    this.onHideSearchInput = this.onHideSearchInput.bind(this);
+    this.onOpenSearchInput = this.onOpenSearchInput.bind(this);
     this.onBackBtnPressed = this.onBackBtnPressed.bind(this);
     this.onMenuPressed = this.onMenuPressed.bind(this);
     this.onFavouritePressed = this.onFavouritePressed.bind(this);
-
   }
 
-  toggleSearchInput () {
-    this.setState(Object.assign({}, this.state, {isSearchActive: !this.state.isSearchActive}));
+  onHideSearchInput () {
+    this.props.dispatch(hideSearchInput(this.props.nav));
+  }
+
+  onOpenSearchInput () {
+    if (this.props.nav.isSettingsActive) {
+      return false;
+    }
+
+    this.props.dispatch(showSearchInput(this.props.nav));
   }
 
   onBackBtnPressed () {
-    this.setState(Object.assign({}, this.state, {
-      isSettingsActive: false,
-      isFavouriteActive: false,
-      isBackBtnActive: false,
-      isSearchActive: false,
-    }));
+    this.props.dispatch(backPressed(this.props.nav))
   }
 
   onMenuPressed () {
-    this.setState(Object.assign({}, this.state, {
-      isSettingsActive: true,
-      isBackBtnActive: true,
-      isSearchActive: false,
-    }));
+    this.props.dispatch(openSettings(this.props.nav));
   }
 
   onFavouritePressed () {
-    this.setState(Object.assign({}, this.state, {
-      isFavouriteActive: true,
-      isBackBtnActive: true,
-      isSearchActive: false,
-    }));
+    this.props.dispatch(openFavourite(this.props.nav));
   }
 
   render() {
-    const backBtnPadder = this.state.isBackBtnActive ? {paddingLeft: 25} : {};
+    const backBtnPadder = this.props.nav && this.props.nav.isBackBtnActive ? {paddingLeft: 25} : {};
 
     return (
       <View>
@@ -81,7 +99,7 @@ export class Header extends Component<Props, State> {
         </View>
         <View style={styles.mainHeaderContainer}>
           <View style={{flex: 1}}>
-            {this.state.isBackBtnActive && (
+            {this.props.nav.isBackBtnActive && (
               <TouchableOpacity onPress={this.onBackBtnPressed}>
                 <Text style={{paddingLeft: 20}}>
                   <Icon name="long-arrow-left" size={19} color="#fff" style={{fontWeight: 100}} />
@@ -90,7 +108,7 @@ export class Header extends Component<Props, State> {
             )}
           </View>
 
-          {!this.state.isSearchActive ? (
+          {!this.props.nav.isSearchActive ? (
             <View style={{flex: 8}}>
               <Text style={[{margin: 0, fontSize: 17, textAlign: 'left', color: '#fff', fontWeight: 'bold', textAlign: 'left',}, backBtnPadder]}>
                 Crypto Currency Cap
@@ -108,14 +126,14 @@ export class Header extends Component<Props, State> {
           )}
 
           <View style={{flex: 1}}>
-            {!this.state.isSearchActive ? (
-              <TouchableOpacity onPress={this.toggleSearchInput}>
+            {!this.props.nav.isSearchActive ? (
+              <TouchableOpacity onPress={this.onOpenSearchInput}>
                 <Text style={{textAlign: 'left', paddingLeft: 0}}>
-                  <Icon name="search" size={19} color="#fff" />
+                  <Icon name="search" size={19} color={this.props.nav.isSettingsActive ? "#188663" : "#fff"} />
                 </Text>
               </TouchableOpacity>
             ) : (
-              <TouchableOpacity onPress={this.toggleSearchInput}>
+              <TouchableOpacity onPress={this.onHideSearchInput}>
                 <Text style={{textAlign: 'left', paddingLeft: 0}}>
                   <Icon name="times" size={19} color="#fff" style={{fontWeight: 100}} />
                 </Text>
@@ -126,7 +144,7 @@ export class Header extends Component<Props, State> {
           <View style={{flex: 1}}>
             <TouchableOpacity onPress={this.onFavouritePressed}>
               <Text style={{textAlign: 'center', paddingRight: 10}}>
-                <Icon name={this.state.isFavouriteActive ? 'star' : 'star-o'} size={19} color={this.state.isFavouriteActive ? '#188663' : '#fff'} />
+                <Icon name={this.props.nav.isFavouriteActive ? 'star' : 'star-o'} size={19} color={this.props.nav.isFavouriteActive ? '#188663' : '#fff'} />
               </Text>
             </TouchableOpacity>
           </View>
@@ -134,7 +152,7 @@ export class Header extends Component<Props, State> {
           <View style={{flex: 1}}>
             <TouchableOpacity onPress={this.onMenuPressed}>
               <Text style={{textAlign: 'right', paddingRight: 15}}>
-                <Icon name="cog" size={19} color={this.state.isSettingsActive ? '#188663' : '#fff'} />
+                <Icon name="cog" size={19} color={this.props.nav.isSettingsActive ? '#188663' : '#fff'} />
               </Text>
             </TouchableOpacity>
           </View>
@@ -143,3 +161,14 @@ export class Header extends Component<Props, State> {
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    nav: state.nav,
+  }
+}
+
+const connector: Connector<State, Props> = connect(mapStateToProps);
+
+export default connector(Header);
