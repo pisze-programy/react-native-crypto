@@ -126,7 +126,7 @@ export class Header extends Component<Props, State> {
           <View style={{flex: 1}}>
             <TouchableOpacity onPress={this.onFavouritePressed}>
               <Text style={{textAlign: 'center', paddingRight: 10}}>
-                <Icon name="star-o" size={19} color="#fff" />
+                <Icon name={this.state.isFavouriteActive ? 'star' : 'star-o'} size={19} color={this.state.isFavouriteActive ? '#188663' : '#fff'} />
               </Text>
             </TouchableOpacity>
           </View>
@@ -134,7 +134,7 @@ export class Header extends Component<Props, State> {
           <View style={{flex: 1}}>
             <TouchableOpacity onPress={this.onMenuPressed}>
               <Text style={{textAlign: 'right', paddingRight: 15}}>
-                <Icon name="cog" size={19} color="#fff" />
+                <Icon name="cog" size={19} color={this.state.isSettingsActive ? '#188663' : '#fff'} />
               </Text>
             </TouchableOpacity>
           </View>

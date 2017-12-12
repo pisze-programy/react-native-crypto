@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'center',
+    backgroundColor: '#00273b',
   },
 
   mainHeaderContainer: {
@@ -18,3 +19,10 @@ export const styles = StyleSheet.create({
     backgroundColor: '#1da075'
   },
 });
+
+// dark theme background #00273b
+// header background #1da075
+// header active element #188663
+// red #f84d55
+// blue #008790
+// yellow #e6d859

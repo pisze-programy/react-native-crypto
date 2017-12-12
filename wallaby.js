@@ -11,6 +11,7 @@ module.exports = function (wallaby) {
 
     tests: [
       'app/**/*.test.js',
+      'setupTest.test.js'
     ],
 
     env: {

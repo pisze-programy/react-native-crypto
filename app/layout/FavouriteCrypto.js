@@ -7,9 +7,6 @@ type Props = {
 
 }
 
-@connect(state => ({
-  //
-}))
 export class FavouriteCrypto extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -23,3 +20,9 @@ export class FavouriteCrypto extends Component<Props> {
     );
   }
 }
+
+const state = (state) => {
+  return {}
+};
+
+export default connect(state)(FavouriteCrypto);

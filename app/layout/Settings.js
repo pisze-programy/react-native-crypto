@@ -7,9 +7,6 @@ type Props = {
 
 };
 
-@connect(state => ({
-  //
-}))
 export class Settings extends Component<Props> {
   constructor(props: Props) {
     super(props);
@@ -23,3 +20,9 @@ export class Settings extends Component<Props> {
     );
   }
 }
+
+const state = (state) => {
+  return {}
+};
+
+export default connect(state)(Settings);
