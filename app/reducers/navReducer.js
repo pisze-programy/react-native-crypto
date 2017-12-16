@@ -41,6 +41,7 @@ export default function navReducer(state = {}, action): Action {
 
     case types.BACK_PRESSED:
       prepare = {
+        isSettingsActive: false,
         isFavouriteActive: false,
         isBackBtnActive: false,
         isSearchActive: false,

@@ -8,6 +8,8 @@ import Header from "../components/Header";
 import type { Connector } from "react-redux";
 import type { Dispatch } from "../types";
 import type { Nav } from "../types/nav";
+import { Settings } from "./Settings";
+import { FavouriteCrypto } from "./FavouriteCrypto";
 
 type Props = {
   nav: Nav,
@@ -25,7 +27,9 @@ export class MainLayout extends Component<Props, State> {
     return (
       <View style={styles.mainContainer}>
         <Header />
-        <AllCrypto />
+        {this.props.nav.isSettingsActive && <Settings/>}
+        {this.props.nav.isFavouriteActive && <FavouriteCrypto/>}
+        {!this.props.nav.isBackBtnActive && <AllCrypto/>}
       </View>
     );
   }

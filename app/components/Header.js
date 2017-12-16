@@ -28,14 +28,7 @@ export class Header extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    this.state = {
-      nav: {
-        isSearchActive: false,
-        isBackBtnActive: false,
-        isFavouriteActive: false,
-        isSettingsActive: false,
-      }
-    };
+    this.state = {};
 
     this.onHideSearchInput = this.onHideSearchInput.bind(this);
     this.onOpenSearchInput = this.onOpenSearchInput.bind(this);
