@@ -10,7 +10,7 @@ import { MainLayout } from "./Main";
 
 configure({ adapter: new Adapter() });
 
-describe('Header Component Test Case', () => {
+describe('MainLayout Component Test Case', () => {
   const component = shallow(<MainLayout dispatch={() => {}} nav={{
     isSearchActive: false,
     isBackBtnActive: false,

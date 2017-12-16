@@ -18,6 +18,19 @@ export const styles = StyleSheet.create({
     width,
     backgroundColor: '#1da075'
   },
+
+  layoutContainer: {
+    position: "absolute",
+    top: 50,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 10,
+    paddingRight: 10,
+    height: (height - 50 - 20),
+  }
 });
 
 // dark theme background #00273b

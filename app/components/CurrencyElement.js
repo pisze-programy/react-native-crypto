@@ -3,7 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import { Text, View } from "react-native";
 
 type Props = {
-
+  coin: any,
+  index: number
 }
 
 export class CurrencyElement extends Component<Props> {
@@ -13,9 +14,9 @@ export class CurrencyElement extends Component<Props> {
 
   render() {
     return (
-      <View>
-        <Text>
-          Element
+      <View style={{backgroundColor: '#000'}}>
+        <Text style={{color: '#fff'}}>
+          Element {this.props.index}
         </Text>
       </View>
     );
