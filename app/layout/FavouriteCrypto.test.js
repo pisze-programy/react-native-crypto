@@ -11,7 +11,11 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('FavouriteCrypto Component Test Case', () => {
-  const component = shallow(<FavouriteCrypto />);
+  const component = shallow(<FavouriteCrypto dispatch={() => {}} coins={{
+    isFetching: false,
+    data: null,
+    error: null,
+  }} />);
 
   it('renders correctly', () => {
     expect(component).toBeDefined();

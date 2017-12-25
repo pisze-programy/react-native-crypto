@@ -9,7 +9,7 @@ import type { Connector } from "react-redux";
 import type { Dispatch } from "../types";
 import type { Nav } from "../types/nav";
 import { Settings } from "./Settings";
-import { FavouriteCrypto } from "./FavouriteCrypto";
+import FavouriteCrypto from "./FavouriteCrypto";
 
 type Props = {
   nav: Nav,
