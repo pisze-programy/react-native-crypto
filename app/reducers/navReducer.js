@@ -11,6 +11,7 @@ export default function navReducer(state = {}, action): Action {
         isBackBtnActive: true,
         isSearchActive: false,
         isFavouriteActive: false,
+        isCryptoDetailsActive: false,
       };
 
       return Object.assign({}, action.payload, prepare);
@@ -35,6 +36,7 @@ export default function navReducer(state = {}, action): Action {
         isBackBtnActive: true,
         isSearchActive: false,
         isSettingsActive: false,
+        isCryptoDetailsActive: false,
       };
 
       return Object.assign({}, action.payload, prepare);
@@ -45,6 +47,19 @@ export default function navReducer(state = {}, action): Action {
         isFavouriteActive: false,
         isBackBtnActive: false,
         isSearchActive: false,
+        isCryptoDetailsActive: false,
+      };
+
+      return Object.assign({}, action.payload, prepare);
+
+
+    case types.SHOW_CRYPTO_DETAILS:
+      prepare = {
+        isSettingsActive: false,
+        isFavouriteActive: false,
+        isBackBtnActive: true,
+        isSearchActive: false,
+        isCryptoDetailsActive: true,
       };
 
       return Object.assign({}, action.payload, prepare);

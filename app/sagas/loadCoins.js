@@ -1,7 +1,7 @@
 import {call, put, takeEvery} from "redux-saga/effects";
 import * as types from "../actions/actionTypes";
 import axios from 'axios';
-import { coinsList } from "../api/coin";
+import { coinsList } from "../api/coins";
 
 export function* loadCoins() {
   try {

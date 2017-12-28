@@ -20,3 +20,7 @@ export function openFavourite(payload): Action {
 export function backPressed(payload): Action {
   return {type: types.BACK_PRESSED, payload};
 }
+
+export function showCryptoDetails(payload) {
+  return { type: types.SHOW_CRYPTO_DETAILS, payload };
+}

@@ -3,4 +3,5 @@ export type Nav = {
   isBackBtnActive: boolean,
   isFavouriteActive: boolean,
   isSettingsActive: boolean,
+  isCryptoDetailsActive: boolean,
 }

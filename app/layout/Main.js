@@ -10,6 +10,7 @@ import type { Dispatch } from "../types";
 import type { Nav } from "../types/nav";
 import { Settings } from "./Settings";
 import FavouriteCrypto from "./FavouriteCrypto";
+import Crypto from "./Crypto";
 
 type Props = {
   nav: Nav,
@@ -29,6 +30,7 @@ export class MainLayout extends Component<Props, State> {
         <Header />
         {this.props.nav.isSettingsActive && <Settings/>}
         {this.props.nav.isFavouriteActive && <FavouriteCrypto/>}
+        {this.props.nav.isCryptoDetailsActive && <Crypto/>}
         {!this.props.nav.isBackBtnActive && <AllCrypto/>}
       </View>
     );

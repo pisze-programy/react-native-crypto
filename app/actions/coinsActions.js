@@ -8,3 +8,7 @@ export function loadCoins(payload): Action {
 export function loadFavouriteCoins(payload): Action {
   return {type: types.LOAD_FAVOURITE_COINS, payload};
 }
+
+export function loadCoin(payload) {
+  return { type: types.LOAD_COIN, payload };
+}

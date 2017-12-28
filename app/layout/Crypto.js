@@ -3,15 +3,14 @@ import React, { Component } from "react";
 import { ScrollView, Text, View } from "react-native";
 import type { Connector } from "react-redux";
 import { connect } from "react-redux";
-import { CurrencyElement } from "../components/CurrencyElement";
 import type { Dispatch } from "../types";
-import type { Coins } from "../types/coins";
-import { loadCoins } from "../actions/coinsActions";
+import type { Coin } from "../types/coins";
+import { loadCoin } from "../actions/coinsActions";
 import { styles } from "../styles";
 
 type Props = {
-  coins: {
-    data: Coins,
+  coin: {
+    data: Coin,
     error: string,
     isFetching: boolean,
   },
@@ -20,38 +19,34 @@ type Props = {
 
 type State = {}
 
-export class AllCrypto extends Component<Props, State> {
+export class Crypto extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.dispatch(loadCoins({}));
+    this.props.dispatch(loadCoin({}));
   }
 
   render() {
     return (
       <View style={styles.layoutContainer}>
 
-        {this.props.coins.isFetching && (
+        {this.props.coin.isFetching && (
           <View>
             <Text>Loading...</Text>
           </View>
         )}
 
-        {this.props.coins.error && (
+        {this.props.coin.error && (
           <View>
             <Text>Error while fetching</Text>
           </View>
         )}
 
-        {this.props.coins.data && this.props.coins.data.length && (
+        {this.props.coin.data && (
           <ScrollView>
-            {this.props.coins.data.map((coin, index) => {
-              return (
-                <CurrencyElement key={index} coin={coin} index={index}/>
-              )
-            })}
+            <Text>{this.props.coin.data.name}</Text>
           </ScrollView>
         )}
 
@@ -62,10 +57,10 @@ export class AllCrypto extends Component<Props, State> {
 
 const mapStateToProps = (state) => {
   return {
-    coins: state.coins,
+    coin: state.coin,
   }
 };
 
 const connector: Connector<State, Props> = connect(mapStateToProps);
 
-export default connector(AllCrypto);
+export default connector(Crypto);
