@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { ScrollView, Text, View } from "react-native";
 import type { Connector } from "react-redux";
 import { connect } from "react-redux";
-import { CurrencyElement } from "../components/CurrencyElement";
+import CurrencyElement from "../components/CurrencyElement";
 import type { Dispatch } from "../types";
 import type { Coins } from "../types/coins";
 import { loadCoins } from "../actions/coinsActions";
