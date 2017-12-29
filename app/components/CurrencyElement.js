@@ -34,12 +34,48 @@ export class CurrencyElement extends Component<Props, State> {
   render() {
     const coin = this.props.coin;
     return (
-      <View style={{backgroundColor: '#000', padding: 20}}>
-        <TouchableOpacity onPress={this.onCoinPressed}>
+      <View style={{paddingTop: 10, paddingBottom: 10, paddingRight: 5, paddingLeft: 5}}>
+        <TouchableOpacity onPress={this.onCoinPressed} style={{flex: 1, flexDirection: 'row', alignSelf: 'stretch',}}>
 
-          <Text style={{color: '#fff'}}>
-            {coin.name}, {coin.symbol}, {coin.price_usd}$
-          </Text>
+          <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center',}}>
+            <Text style={{color: '#fff'}}>
+              {this.props.index + 1}
+            </Text>
+          </View>
+
+          <View style={{flex: 1, margin: 10, backgroundColor: 'powderblue'}} />
+
+          <View style={{ flex: 10, alignSelf: 'stretch', justifyContent: 'center', }}>
+            <View style={{flex: 1, flexDirection: 'column',}}>
+
+              <View style={{ flex: 1 }}>
+                <Text style={{color: '#fff'}}>
+                  {coin.name}
+                </Text>
+              </View>
+
+              <View style={{ flex: 1 }}>
+                <Text>
+                  <Text style={{color: '#fff'}}>
+                    {coin.symbol}
+                  </Text>
+                </Text>
+              </View>
+
+            </View>
+          </View>
+
+          <View style={{ flex: 6, alignSelf: 'stretch' }}>
+            <Text style={{color: '#fff', textAlign: 'center' }}>
+              {coin.price_usd}$
+            </Text>
+          </View>
+
+          <View style={{ flex: 3, alignSelf: 'stretch',}}>
+            <Text style={{color: '#fff', textAlign: 'right'}}>
+              {coin.percent_change_24h}%
+            </Text>
+          </View>
 
         </TouchableOpacity>
       </View>

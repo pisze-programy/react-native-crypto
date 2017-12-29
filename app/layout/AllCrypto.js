@@ -8,6 +8,7 @@ import type { Dispatch } from "../types";
 import type { Coins } from "../types/coins";
 import { loadCoins } from "../actions/coinsActions";
 import { styles } from "../styles";
+import { CurrencyTableHeader } from "../components/CurrencyTableHeader";
 
 type Props = {
   coins: {
@@ -47,6 +48,8 @@ export class AllCrypto extends Component<Props, State> {
 
         {this.props.coins.data && this.props.coins.data.length && (
           <ScrollView>
+            <CurrencyTableHeader />
+
             {this.props.coins.data.map((coin, index) => {
               return (
                 <CurrencyElement key={index} coin={coin} index={index}/>

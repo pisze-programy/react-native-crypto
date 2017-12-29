@@ -6,8 +6,9 @@ import { loadFavouriteCoins } from "../actions/coinsActions";
 import type { Coins } from "../types/coins";
 import type { Dispatch } from "../types";
 import { styles } from "../styles";
-import { CurrencyElement } from "../components/CurrencyElement";
+import CurrencyElement from "../components/CurrencyElement";
 import type { Connector } from "react-redux";
+import { CurrencyTableHeader } from "../components/CurrencyTableHeader";
 
 type Props = {
   coins: Coins,
@@ -43,6 +44,7 @@ export class FavouriteCrypto extends Component<Props, State> {
 
         {this.props.coins.data && this.props.coins.data.length && (
           <ScrollView>
+            <CurrencyTableHeader />
             {this.props.coins.data.map((coin, index) => {
               return (
                 <CurrencyElement key={index} coin={coin} index={index}/>

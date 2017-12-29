@@ -25,10 +25,10 @@ export const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    paddingTop: 20,
+    paddingTop: 10,
     paddingBottom: 20,
-    paddingLeft: 10,
-    paddingRight: 10,
+    paddingLeft: 5,
+    paddingRight: 5,
     height: (height - 50 - 20),
   }
 });
