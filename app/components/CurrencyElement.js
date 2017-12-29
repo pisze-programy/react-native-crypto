@@ -38,7 +38,7 @@ export class CurrencyElement extends Component<Props, State> {
         <TouchableOpacity onPress={this.onCoinPressed} style={{flex: 1, flexDirection: 'row', alignSelf: 'stretch',}}>
 
           <View style={{ flex: 1, alignSelf: 'stretch', justifyContent: 'center',}}>
-            <Text style={{color: '#fff'}}>
+            <Text style={{color: '#fff', textAlign: 'center', }}>
               {this.props.index + 1}
             </Text>
           </View>

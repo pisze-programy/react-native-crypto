@@ -25,13 +25,13 @@ export class CurrencyTableHeader extends Component<Props, State> {
         </View>
 
         <View style={{ flex: 10, alignSelf: 'stretch', }}>
-          <Text style={{color: '#fff', textAlign: 'left', paddingLeft: 20}}>
+          <Text style={{color: '#fff', textAlign: 'left', paddingLeft: 10}}>
             Name
           </Text>
         </View>
 
-        <View style={{ flex: 6, alignSelf: 'stretch', }}>
-          <Text style={{color: '#fff', textAlign: 'center' }}>
+        <View style={{ flex: 3, alignSelf: 'stretch', }}>
+          <Text style={{color: '#fff', textAlign: 'left' }}>
             USD
           </Text>
         </View>
