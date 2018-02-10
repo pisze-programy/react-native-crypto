@@ -62,7 +62,7 @@ export class Header extends Component<Props, State> {
   }
 
   render() {
-    const backBtnPadder = this.props.nav && this.props.nav.isBackBtnActive ? {paddingLeft: 25} : {};
+    const backBtnPadder = this.props.nav && this.props.nav.isBackBtnActive ? {paddingLeft: 30} : {};
 
     return (
       <View>
@@ -73,6 +73,7 @@ export class Header extends Component<Props, State> {
           />
         </View>
         <View style={styles.mainHeaderContainer}>
+
           <View style={{flex: 1}}>
             {this.props.nav.isBackBtnActive && (
               <TouchableOpacity onPress={this.onBackBtnPressed}>
@@ -92,7 +93,7 @@ export class Header extends Component<Props, State> {
           ) : (
             <View style={{flex: 8}}>
               <TextInput
-                style={{height: 40, color: '#fff', marginLeft: 20, marginRight: 20,}}
+                style={[{height: 40, color: '#fff', marginRight: 20,}, this.props.nav.isBackBtnActive ? {marginLeft: 30} : {marginLeft: 0}, ]}
                 autoFocus={true}
                 placeholderTextColor={'#fff'}
                 placeholder="Search for currency"
