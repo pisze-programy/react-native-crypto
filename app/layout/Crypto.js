@@ -31,22 +31,21 @@ export class Crypto extends Component<Props, State> {
   render() {
     return (
       <View style={styles.layoutContainer}>
-
         {this.props.coin.isFetching && (
           <View>
-            <Text>Loading...</Text>
+            <Text style={{color: '#fff'}}>Loading...</Text>
           </View>
         )}
 
         {this.props.coin.error && (
           <View>
-            <Text>Error while fetching</Text>
+            <Text style={{color: '#fff'}}>Error while fetching</Text>
           </View>
         )}
 
         {this.props.coin.data && (
           <ScrollView>
-            <Text>{this.props.coin.data.name}</Text>
+            <Text style={{color: '#fff'}}>{this.props.coin.data.name}</Text>
           </ScrollView>
         )}
 

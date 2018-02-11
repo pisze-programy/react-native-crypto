@@ -15,7 +15,7 @@ export class Settings extends Component<Props> {
   render() {
     return (
       <View>
-        <Text>Settings</Text>
+        <Text style={{color: '#fff'}}>Settings</Text>
       </View>
     );
   }

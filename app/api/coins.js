@@ -898,8 +898,7 @@ export const favouriteList = () => {
 
 export const coin = () => {
   return {
-    data: [
-      {
+    data: {
         "id": "bitcoin",
         "name": "Bitcoin",
         "symbol": "BTC",
@@ -915,7 +914,6 @@ export const coin = () => {
         "percent_change_24h": "6.02",
         "percent_change_7d": "27.5",
         "last_updated": "1513450754"
-      },
-    ]
+    },
   }
 };
