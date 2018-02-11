@@ -8,7 +8,8 @@ import type { Coin } from "../types/coins";
 import { loadCoin } from "../actions/coinsActions";
 import { styles } from "../styles";
 
-import { VictoryChart, VictoryAxis, VictoryTheme, VictoryCandlestick } from "victory-native";
+import { VictoryChart, VictoryArea, VictoryTheme } from "victory-native";
+import CurrencyFormatter from "../components/CurrencyFormatter";
 
 type Props = {
   coin: {
@@ -31,43 +32,103 @@ export class Crypto extends Component<Props, State> {
   }
 
   render() {
-    console.log('crypto', this.props.coin);
+    const coin = this.props.coin;
     return (
       <View style={styles.layoutContainer}>
-        {this.props.coin.isFetching && (
+        {coin.isFetching && (
           <View>
             <Text style={{color: '#fff'}}>Loading...</Text>
           </View>
         )}
 
-        {this.props.coin.error && (
+        {coin.error && (
           <View>
             <Text style={{color: '#fff'}}>Error while fetching</Text>
           </View>
         )}
 
-        {this.props.coin.data && (
+        {coin.data && (
           <ScrollView>
-            <Text style={{color: '#fff'}}>{this.props.coin.data.name}</Text>
+            <Text style={{margin: 0, fontSize: 17, textAlign: 'left', color: '#fff', fontWeight: 'bold', textAlign: 'center',}}>{coin.data.name} ({coin.data.symbol})</Text>
 
-            <VictoryChart
-              theme={VictoryTheme.material}
-              domainPadding={{ x: 25 }}
-              scale={{ x: "time" }}
-            >
-              <VictoryAxis tickFormat={(t) => `${t.getDate()}/${t.getMonth()}`}/>
-              <VictoryAxis dependentAxis/>
-              <VictoryCandlestick
-                candleColors={{ positive: "#5f5c5b", negative: "#c43a31" }}
+            <VictoryChart theme={VictoryTheme.material}>
+              <VictoryArea
+                style={{ data: { fill: "#1da075" } }}
                 data={[
-                  {x: new Date(2016, 6, 1), open: 5, close: 10, high: 15, low: 0},
-                  {x: new Date(2016, 6, 2), open: 10, close: 15, high: 20, low: 5},
-                  {x: new Date(2016, 6, 3), open: 15, close: 20, high: 22, low: 10},
-                  {x: new Date(2016, 6, 4), open: 20, close: 10, high: 25, low: 7},
-                  {x: new Date(2016, 6, 5), open: 10, close: 8, high: 15, low: 5}
+                  { x: 1, y: 2, y0: 0 },
+                  { x: 2, y: 3, y0: 0 },
+                  { x: 3, y: 5, y0: 0 },
+                  { x: 4, y: 4, y0: 0 },
+                  { x: 6, y: 60, y0: 0 },
+                  { x: 7, y: 55, y0: 0 },
+                  { x: 8, y: 50, y0: 0 },
+                  { x: 9, y: 25, y0: 0 },
+                  { x: 10, y: 30, y0: 0 },
+                  { x: 11, y: 60, y0: 0 },
+                  { x: 12, y: 50, y0: 0 },
+                  { x: 13, y: 45, y0: 0 },
+                  { x: 14, y: 45, y0: 0 },
+                  { x: 15, y: 45, y0: 0 },
+                  { x: 16, y: 45, y0: 0 },
+                  { x: 17, y: 45, y0: 0 },
+                  { x: 18, y: 45, y0: 0 },
+                  { x: 19, y: 45, y0: 0 },
+                  { x: 20, y: 45, y0: 0 },
+                  { x: 21, y: 45, y0: 0 },
                 ]}
               />
             </VictoryChart>
+
+            <View style={{flex: 1, flexDirection: 'row', alignSelf: 'stretch',}}>
+              <View style={{ flex: 3 }}>
+                <Text style={{color: '#fff', textAlign: 'left', }}>
+                  Rank
+                </Text>
+              </View>
+
+              <View style={{ flex: 3 }}>
+                <Text style={{color: '#fff', textAlign: 'right' }}>
+                  {coin.data.rank}
+                </Text>
+              </View>
+            </View>
+
+            <View style={{flex: 1, flexDirection: 'row', alignSelf: 'stretch',}}>
+              <View style={{ flex: 3 }}>
+                <Text style={{color: '#fff', textAlign: 'left', }}>
+                  Market cap
+                </Text>
+              </View>
+
+              <View style={{ flex: 3 }}>
+                <CurrencyFormatter currency={coin.data.market_cap_usd} before='$' styles={{color: '#fff', textAlign: 'right' }} />
+              </View>
+            </View>
+
+            <View style={{flex: 1, flexDirection: 'row', alignSelf: 'stretch',}}>
+              <View style={{ flex: 3 }}>
+                <Text style={{color: '#fff', textAlign: 'left', }}>
+                  Circulating supply
+                </Text>
+              </View>
+
+              <View style={{ flex: 3 }}>
+                <CurrencyFormatter currency={coin.data.available_supply} after={coin.data.symbol} styles={{color: '#fff', textAlign: 'right' }} />
+              </View>
+            </View>
+
+            <View style={{flex: 1, flexDirection: 'row', alignSelf: 'stretch',}}>
+              <View style={{ flex: 3 }}>
+                <Text style={{color: '#fff', textAlign: 'left', }}>
+                  Volume 24H
+                </Text>
+              </View>
+
+              <View style={{ flex: 3 }}>
+                <CurrencyFormatter currency={coin.data['24h_volume_usd']} before='EUR' styles={{color: '#fff', textAlign: 'right' }} />
+              </View>
+            </View>
+
           </ScrollView>
         )}
 

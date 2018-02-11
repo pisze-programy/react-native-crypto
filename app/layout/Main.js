@@ -25,7 +25,6 @@ export class MainLayout extends Component<Props, State> {
   }
 
   render() {
-    console.log('nav', this.props.nav);
     return (
       <View style={styles.mainContainer}>
         <Header />

@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 
 import type { Dispatch } from "../types";
 import type { Nav } from "../types/nav";
+import CurrencyFormatter from "./CurrencyFormatter";
 
 type Props = {
   coin: Coin,
@@ -66,13 +67,11 @@ export class CurrencyElement extends Component<Props, State> {
           </View>
 
           <View style={{ flex: 6, alignSelf: 'stretch' }}>
-            <Text style={{color: '#fff', textAlign: 'center' }}>
-              {coin.price_usd}$
-            </Text>
+            <CurrencyFormatter currency={coin.price_usd} after='$' styles={{color: '#fff', textAlign: 'center' }} />
           </View>
 
           <View style={{ flex: 3, alignSelf: 'stretch',}}>
-            <Text style={{color: '#fff', textAlign: 'right'}}>
+            <Text style={{color: coin.percent_change_24h < 0 ? '#f84d55' : '#1da075', textAlign: 'right'}}>
               {coin.percent_change_24h}%
             </Text>
           </View>
