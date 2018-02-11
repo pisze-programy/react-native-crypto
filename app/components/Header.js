@@ -42,7 +42,7 @@ export class Header extends Component<Props, State> {
   }
 
   onOpenSearchInput () {
-    if (this.props.nav.isSettingsActive) {
+    if (!this.props.nav.isSearchAvailable) {
       return false;
     }
 
@@ -105,7 +105,7 @@ export class Header extends Component<Props, State> {
             {!this.props.nav.isSearchActive ? (
               <TouchableOpacity onPress={this.onOpenSearchInput}>
                 <Text style={{textAlign: 'left', paddingLeft: 0}}>
-                  <Icon name="search" size={19} color={this.props.nav.isSettingsActive ? "#188663" : "#fff"} />
+                  <Icon name="search" size={19} color={!this.props.nav.isSearchAvailable ? "#188663" : "#fff"} />
                 </Text>
               </TouchableOpacity>
             ) : (

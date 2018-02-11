@@ -3,9 +3,7 @@ import React, { Component } from "react";
 import { Text, View } from "react-native";
 import { connect } from "react-redux";
 
-type Props = {
-
-};
+type Props = {};
 
 export class Settings extends Component<Props> {
   constructor(props: Props) {
