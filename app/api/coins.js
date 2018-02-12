@@ -3,6 +3,8 @@ export const coinsList = () => {
     data: [
       {
         "id": "bitcoin",
+        "is_favourite": true,
+        "is_notify": true,
         "name": "Bitcoin",
         "symbol": "BTC",
         "rank": "1",
@@ -20,6 +22,8 @@ export const coinsList = () => {
       },
       {
         "id": "ethereum",
+        "is_favourite": true,
+        "is_notify": false,
         "name": "Ethereum",
         "symbol": "ETH",
         "rank": "2",
@@ -37,6 +41,8 @@ export const coinsList = () => {
       },
       {
         "id": "bitcoin-cash",
+        "is_favourite": false,
+        "is_notify": true,
         "name": "Bitcoin Cash",
         "symbol": "BCH",
         "rank": "3",
@@ -54,6 +60,8 @@ export const coinsList = () => {
       },
       {
         "id": "ripple",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Ripple",
         "symbol": "XRP",
         "rank": "4",
@@ -71,6 +79,8 @@ export const coinsList = () => {
       },
       {
         "id": "litecoin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Litecoin",
         "symbol": "LTC",
         "rank": "5",
@@ -88,6 +98,8 @@ export const coinsList = () => {
       },
       {
         "id": "iota",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "IOTA",
         "symbol": "MIOTA",
         "rank": "6",
@@ -105,6 +117,8 @@ export const coinsList = () => {
       },
       {
         "id": "cardano",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Cardano",
         "symbol": "ADA",
         "rank": "7",
@@ -122,6 +136,8 @@ export const coinsList = () => {
       },
       {
         "id": "dash",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Dash",
         "symbol": "DASH",
         "rank": "8",
@@ -139,6 +155,8 @@ export const coinsList = () => {
       },
       {
         "id": "nem",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "NEM",
         "symbol": "XEM",
         "rank": "9",
@@ -156,6 +174,8 @@ export const coinsList = () => {
       },
       {
         "id": "bitcoin-gold",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Bitcoin Gold",
         "symbol": "BTG",
         "rank": "10",
@@ -173,6 +193,8 @@ export const coinsList = () => {
       },
       {
         "id": "monero",
+        "is_favourite": true,
+        "is_notify": true,
         "name": "Monero",
         "symbol": "XMR",
         "rank": "11",
@@ -190,6 +212,8 @@ export const coinsList = () => {
       },
       {
         "id": "eos",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "EOS",
         "symbol": "EOS",
         "rank": "12",
@@ -207,6 +231,8 @@ export const coinsList = () => {
       },
       {
         "id": "stellar",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Stellar",
         "symbol": "XLM",
         "rank": "13",
@@ -224,6 +250,8 @@ export const coinsList = () => {
       },
       {
         "id": "ethereum-classic",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Ethereum Classic",
         "symbol": "ETC",
         "rank": "14",
@@ -241,6 +269,8 @@ export const coinsList = () => {
       },
       {
         "id": "neo",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "NEO",
         "symbol": "NEO",
         "rank": "15",
@@ -258,6 +288,8 @@ export const coinsList = () => {
       },
       {
         "id": "qtum",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Qtum",
         "symbol": "QTUM",
         "rank": "16",
@@ -275,6 +307,8 @@ export const coinsList = () => {
       },
       {
         "id": "bitconnect",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "BitConnect",
         "symbol": "BCC",
         "rank": "17",
@@ -292,6 +326,8 @@ export const coinsList = () => {
       },
       {
         "id": "tron",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "TRON",
         "symbol": "TRX",
         "rank": "18",
@@ -309,6 +345,8 @@ export const coinsList = () => {
       },
       {
         "id": "populous",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Populous",
         "symbol": "PPT",
         "rank": "19",
@@ -326,6 +364,8 @@ export const coinsList = () => {
       },
       {
         "id": "omisego",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "OmiseGO",
         "symbol": "OMG",
         "rank": "20",
@@ -343,6 +383,8 @@ export const coinsList = () => {
       },
       {
         "id": "waves",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Waves",
         "symbol": "WAVES",
         "rank": "21",
@@ -360,6 +402,8 @@ export const coinsList = () => {
       },
       {
         "id": "zcash",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Zcash",
         "symbol": "ZEC",
         "rank": "22",
@@ -377,6 +421,8 @@ export const coinsList = () => {
       },
       {
         "id": "lisk",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Lisk",
         "symbol": "LSK",
         "rank": "23",
@@ -394,6 +440,8 @@ export const coinsList = () => {
       },
       {
         "id": "bitshares",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "BitShares",
         "symbol": "BTS",
         "rank": "24",
@@ -411,6 +459,8 @@ export const coinsList = () => {
       },
       {
         "id": "tether",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Tether",
         "symbol": "USDT",
         "rank": "25",
@@ -428,6 +478,8 @@ export const coinsList = () => {
       },
       {
         "id": "hshare",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Hshare",
         "symbol": "HSR",
         "rank": "26",
@@ -445,6 +497,8 @@ export const coinsList = () => {
       },
       {
         "id": "stratis",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Stratis",
         "symbol": "STRAT",
         "rank": "27",
@@ -462,6 +516,8 @@ export const coinsList = () => {
       },
       {
         "id": "ardor",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Ardor",
         "symbol": "ARDR",
         "rank": "28",
@@ -479,6 +535,8 @@ export const coinsList = () => {
       },
       {
         "id": "monacoin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "MonaCoin",
         "symbol": "MONA",
         "rank": "29",
@@ -496,6 +554,8 @@ export const coinsList = () => {
       },
       {
         "id": "nxt",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Nxt",
         "symbol": "NXT",
         "rank": "30",
@@ -513,6 +573,8 @@ export const coinsList = () => {
       },
       {
         "id": "dogecoin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Dogecoin",
         "symbol": "DOGE",
         "rank": "31",
@@ -530,6 +592,8 @@ export const coinsList = () => {
       },
       {
         "id": "bytecoin-bcn",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Bytecoin",
         "symbol": "BCN",
         "rank": "32",
@@ -547,6 +611,8 @@ export const coinsList = () => {
       },
       {
         "id": "veritaseum",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Veritaseum",
         "symbol": "VERI",
         "rank": "33",
@@ -564,6 +630,8 @@ export const coinsList = () => {
       },
       {
         "id": "steem",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Steem",
         "symbol": "STEEM",
         "rank": "34",
@@ -581,6 +649,8 @@ export const coinsList = () => {
       },
       {
         "id": "decred",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Decred",
         "symbol": "DCR",
         "rank": "35",
@@ -598,6 +668,8 @@ export const coinsList = () => {
       },
       {
         "id": "augur",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Augur",
         "symbol": "REP",
         "rank": "36",
@@ -615,6 +687,8 @@ export const coinsList = () => {
       },
       {
         "id": "verge",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Verge",
         "symbol": "XVG",
         "rank": "37",
@@ -632,6 +706,8 @@ export const coinsList = () => {
       },
       {
         "id": "komodo",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Komodo",
         "symbol": "KMD",
         "rank": "38",
@@ -649,6 +725,8 @@ export const coinsList = () => {
       },
       {
         "id": "ark",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Ark",
         "symbol": "ARK",
         "rank": "39",
@@ -666,6 +744,8 @@ export const coinsList = () => {
       },
       {
         "id": "salt",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "SALT",
         "symbol": "SALT",
         "rank": "40",
@@ -683,6 +763,8 @@ export const coinsList = () => {
       },
       {
         "id": "binance-coin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Binance Coin",
         "symbol": "BNB",
         "rank": "41",
@@ -700,6 +782,8 @@ export const coinsList = () => {
       },
       {
         "id": "einsteinium",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Einsteinium",
         "symbol": "EMC2",
         "rank": "42",
@@ -717,6 +801,8 @@ export const coinsList = () => {
       },
       {
         "id": "status",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Status",
         "symbol": "SNT",
         "rank": "43",
@@ -734,6 +820,8 @@ export const coinsList = () => {
       },
       {
         "id": "qash",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "QASH",
         "symbol": "QASH",
         "rank": "44",
@@ -751,6 +839,8 @@ export const coinsList = () => {
       },
       {
         "id": "byteball",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Byteball Bytes",
         "symbol": "GBYTE",
         "rank": "45",
@@ -768,6 +858,8 @@ export const coinsList = () => {
       },
       {
         "id": "siacoin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Siacoin",
         "symbol": "SC",
         "rank": "46",
@@ -785,6 +877,8 @@ export const coinsList = () => {
       },
       {
         "id": "golem-network-tokens",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Golem",
         "symbol": "GNT",
         "rank": "47",
@@ -802,6 +896,8 @@ export const coinsList = () => {
       },
       {
         "id": "vertcoin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Vertcoin",
         "symbol": "VTC",
         "rank": "48",
@@ -819,6 +915,8 @@ export const coinsList = () => {
       },
       {
         "id": "electroneum",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Electroneum",
         "symbol": "ETN",
         "rank": "49",
@@ -836,6 +934,8 @@ export const coinsList = () => {
       },
       {
         "id": "pivx",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "PIVX",
         "symbol": "PIVX",
         "rank": "50",
@@ -860,6 +960,8 @@ export const favouriteList = () => {
     data: [
       {
         "id": "bitcoin",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Bitcoin",
         "symbol": "BTC",
         "rank": "1",
@@ -877,6 +979,8 @@ export const favouriteList = () => {
       },
       {
         "id": "monero",
+        "is_favourite": false,
+        "is_notify": false,
         "name": "Monero",
         "symbol": "XMR",
         "rank": "11",
@@ -900,6 +1004,8 @@ export const coin = () => {
   return {
     data: {
       "id": "bitcoin",
+      "is_favourite": false,
+      "is_notify": false,
       "name": "Bitcoin",
       "symbol": "BTC",
       "rank": "1",

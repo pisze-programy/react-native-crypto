@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import type { Dispatch } from "../types";
 import type { Nav } from "../types/nav";
 import CurrencyFormatter from "./CurrencyFormatter";
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 type Props = {
   coin: Coin,
@@ -49,10 +50,26 @@ export class CurrencyElement extends Component<Props, State> {
           <View style={{ flex: 10, alignSelf: 'stretch', justifyContent: 'center', }}>
             <View style={{flex: 1, flexDirection: 'column',}}>
 
-              <View style={{ flex: 1 }}>
-                <Text style={{color: '#fff'}}>
-                  {coin.name}
-                </Text>
+              <View style={{ flex: 1, flexDirection: 'row'}}>
+
+                <View style={{flex: 10}}>
+                  <Text style={{color: '#fff'}}>
+                    {coin.name}
+                  </Text>
+                </View>
+
+                {coin.is_favourite && (
+                  <View style={{flex: 1, justifyContent: 'center',}}>
+                    <Icon name="star" size={10} color="#fff" style={{fontWeight: 100, color: '#e6d859', textAlign: 'right'}} />
+                  </View>
+                )}
+
+                {coin.is_notify && (
+                  <View style={{flex: 1, justifyContent: 'center',}}>
+                    <Icon name="bell" size={10} color="#fff" style={{fontWeight: 100, color: '#008790', textAlign: 'right'}} />
+                  </View>
+                )}
+
               </View>
 
               <View style={{ flex: 1 }}>
