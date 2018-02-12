@@ -71,9 +71,7 @@ export class CurrencyElement extends Component<Props, State> {
           </View>
 
           <View style={{ flex: 3, alignSelf: 'stretch',}}>
-            <Text style={{color: coin.percent_change_24h < 0 ? '#f84d55' : '#1da075', textAlign: 'right'}}>
-              {coin.percent_change_24h}%
-            </Text>
+            <CurrencyFormatter currency={coin.percent_change_24h} after='%' styles={{color: coin.percent_change_24h <= 0 ? '#f84d55' : '#1da075', textAlign: 'right'}} />
           </View>
 
         </TouchableOpacity>
