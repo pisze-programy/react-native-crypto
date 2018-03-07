@@ -960,8 +960,8 @@ export const favouriteList = () => {
     data: [
       {
         "id": "bitcoin",
-        "is_favourite": false,
-        "is_notify": false,
+        "is_favourite": true,
+        "is_notify": true,
         "name": "Bitcoin",
         "symbol": "BTC",
         "rank": "1",
@@ -979,8 +979,8 @@ export const favouriteList = () => {
       },
       {
         "id": "monero",
-        "is_favourite": false,
-        "is_notify": false,
+        "is_favourite": true,
+        "is_notify": true,
         "name": "Monero",
         "symbol": "XMR",
         "rank": "11",
@@ -1004,8 +1004,8 @@ export const coin = () => {
   return {
     data: {
       "id": "bitcoin",
-      "is_favourite": false,
-      "is_notify": false,
+      "is_favourite": true,
+      "is_notify": true,
       "name": "Bitcoin",
       "symbol": "BTC",
       "rank": "1",
