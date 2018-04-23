@@ -4,7 +4,6 @@
 
 ## Related
 
-* [react-native-maps](https://github.com/airbnb/react-native-maps)
 * [react-native](https://github.com/facebook/react-native)
 
 ## License
